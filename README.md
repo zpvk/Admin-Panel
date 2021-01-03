@@ -5,14 +5,14 @@
   Our selection:    Polythene manufacturing company :factory:
   
   # Deliverables :    
-                    Full Database (.bak) </br>
-                    Software </br>
-                    Scenario Introduction (pdf) </br>
-                    Entity Relationship Diagram </br>
-                    Relational Schema diagram </br>
-                    1,2,3 Normalization </br>
-                    Assumption and Solution (pdf) </br>
-                    Presentation (.ppt) </br>
+                    Full Database (.bak) 
+                    Software 
+                    Scenario Introduction (pdf) 
+                    Entity Relationship Diagram 
+                    Relational Schema diagram 
+                    1,2,3 Normalization 
+                    Assumption and Solution (pdf) 
+                    Presentation (.ppt) 
  
  Languages    :     SQL
                     Python
