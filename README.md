@@ -4,7 +4,8 @@
   
   Our selection:    Polythene manufacturing company :factory:
   
-  Deliverables :    Full Database (.bak) </br>
+  #Deliverables :    
+                    Full Database (.bak) </br>
                     Software </br>
                     Scenario Introduction (pdf) </br>
                     Entity Relationship Diagram </br>
