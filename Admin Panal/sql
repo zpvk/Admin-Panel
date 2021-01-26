@@ -1,0 +1,47 @@
+DECLARE
+
+	rawm_id INTEGER;
+	orderrowm_id INTEGER;
+	qty INTEGER;
+	supplier_id INTEGER;
+
+BEGIN
+
+	rawm_id = 1;
+	orderrowm_id = NEW.id;
+	qty = NEW.quantity;
+	supplier_id = NEW.supplier_id_id;
+
+	CALL set_order_price_supplier(rawm_id,orderrowm_id,qty,supplier_id);
+END
+
+CREATE OR REPLACE PROCEDURE public.set_order_price_supplier(IN rawm_id integer, IN orderrawm_id integer, IN qty integer, IN supplier_id integer)
+    LANGUAGE 'plpgsql'
+
+
+AS $BODY$
+declare
+	rowm_price NUMBER(11,2);
+	total_price NUMBER(11,2);
+begin
+
+	SELECT price_per_kg into rowm_price from app_rawm WHERE id = rawm_id;
+	total_price = rowm_price * qty;
+
+	UPDATE app_orderrawm SET price = total_price WHERE id = orderrawm_id;
+
+	CALL set_topay_supplier(total_price,supplier_id);
+
+end;
+$BODY$;
+
+CREATE OR REPLACE PROCEDURE public.set_topay_supplier(IN topay_amount numeric, IN suplier_id integer)
+    LANGUAGE 'plpgsql'
+
+
+AS $BODY$
+begin
+
+	UPDATE app_supplier set to_pay = to_pay + topay_amount WHERE id = suplier_id;
+end;
+$BODY$;
